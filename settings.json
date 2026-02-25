@@ -1,0 +1,11 @@
+{
+  "hexis-ai-governance": {
+    "default_role": null,
+    "default_jurisdiction": "EU",
+    "show_recital_references": true,
+    "show_digital_omnibus_status": true,
+    "include_art4_literacy_check": true,
+    "classification_output_format": "orient_full",
+    "disclaimer_enabled": true
+  }
+}

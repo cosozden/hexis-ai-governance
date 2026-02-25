@@ -1,0 +1,27 @@
+# Claude user-specific settings
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Node (if MCP servers added later)
+node_modules/
+package-lock.json
+
+# Python (if scripts added later)
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Build artifacts
+dist/
+build/

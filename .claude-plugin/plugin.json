@@ -1,0 +1,29 @@
+{
+  "name": "hexis-ai-governance",
+  "version": "0.2.0",
+  "description": "EU AI Act risk classification and compliance guidance plugin. Classifies AI systems under Regulation (EU) 2024/1689 using the HEXIS ORIENT methodology — from risk assessment to actionable compliance recommendations.",
+  "author": {
+    "name": "HEXIS AI Governance",
+    "url": "https://hexis.center"
+  },
+  "homepage": "https://hexis.center",
+  "repository": "https://github.com/hexis-ai/hexis-ai-governance",
+  "license": "Apache-2.0",
+  "keywords": [
+    "eu-ai-act",
+    "ai-governance",
+    "compliance",
+    "risk-classification",
+    "regulation-2024-1689",
+    "orient-framework",
+    "ai-literacy",
+    "gpai",
+    "high-risk-ai"
+  ],
+  "skills": [
+    "skills/eu-ai-act-risk-classification"
+  ],
+  "commands": [
+    "commands/risk-classify.md"
+  ]
+}
