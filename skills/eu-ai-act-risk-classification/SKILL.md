@@ -14,7 +14,7 @@ description: >
 
 # EU AI Act Risk Classification
 
-This skill classifies AI systems under the EU AI Act risk framework and delivers structured compliance guidance using the HEXIS ORIENT methodology (Observe → Risk-assess → Identify obligations → Evaluate controls → Normalize recommendations → Track & iterate).
+This skill classifies AI systems under the EU AI Act risk framework and delivers structured compliance guidance using the HEXIS ORIENT methodology (Observe → Risk → Identify → Evaluate → Navigate → Track).
 
 ## When to use this skill
 
@@ -38,10 +38,10 @@ When classifying an AI system, walk through every ORIENT stage sequentially. Do 
 Determine the user's role under Article 3. Obligations differ significantly by role.
 
 Key roles:
-- **Provider** (Art. 3(3)): develops the AI system or has it developed, places it on market or puts it into service under own name/trademark. Heaviest obligations.
+- **Provider** (Art. 3(8)): develops the AI system or has it developed, places it on market or puts it into service under own name/trademark. Heaviest obligations.
 - **Deployer** (Art. 3(4)): uses the AI system under its authority (except personal non-professional use).
-- **Importer** (Art. 3(6)): places on EU market a system from a third country.
-- **Distributor** (Art. 3(7)): makes system available on EU market (not provider or importer).
+- **Importer** (Art. 3(9)): places on EU market a system from a third country.
+- **Distributor** (Art. 3(10)): makes system available on EU market (not provider or importer).
 - **Product manufacturer**: places system as part of product under own name — treated as provider (Art. 25).
 
 **Critical:** A deployer becomes a provider if they (Art. 25(1)):
@@ -72,7 +72,7 @@ Ask the user: "What is your role — are you developing, deploying, importing, o
 
 ---
 
-## ORIENT Stage: RISK-ASSESS
+## ORIENT Stage: RISK
 
 **Note for GPAI model providers:** Steps 2 and 3 apply at the AI system level. If you are solely a GPAI model provider, your primary classification point is Step 4. Still review Steps 2-3 to understand prohibited/high-risk downstream uses — this informs your acceptable use policy (Art. 53(1)).
 
@@ -98,9 +98,10 @@ Even if prohibited, continue screening — other aspects of the same product/ser
 ### Step 3 — High-Risk Classification (Article 6 + Annex I/III)
 
 **Path A — Annex I: Safety component of regulated product (Art. 6(1))**
-High-risk if BOTH conditions met:
-1. AI is a safety component of a product, or is itself a product, covered by EU harmonisation legislation in Annex I, Section A (machinery, toys, lifts, medical devices, vehicles, aviation, marine, rail, etc.)
-2. That product requires third-party conformity assessment under the applicable Annex I legislation
+High-risk if ALL three conditions met:
+1. AI is a safety component of a product OR is itself the product
+2. Product is covered by EU harmonisation legislation in Annex I, Section A (machinery, toys, lifts, medical devices, vehicles, aviation, marine, rail, etc.)
+3. Product requires third-party conformity assessment under that legislation
 
 Annex I Section B covers additional legislation including large-scale IT systems (SIS, VIS, Eurodac, EES, ETIAS — detailed in Annex X).
 Timeline: August 2027 (proposed Omnibus: long-stop August 2028).
@@ -112,7 +113,7 @@ Eight areas with subcategories:
 2. **Critical infrastructure**: (a) AI as safety component in critical digital infrastructure, road traffic, water/gas/heating/electricity (cross-ref NIS2 Directive)
 3. **Education**: (a) admissions/assignment, (b) evaluating learning outcomes, (c) assessing education level/access, (d) monitoring prohibited student behaviour during tests
 4. **Employment**: (a) recruitment/selection (job ads, filtering, evaluating candidates), (b) decisions on work terms, promotion, termination, task allocation, monitoring/evaluating performance
-5. **Essential services**: (a) public assistance eligibility, (b) creditworthiness/credit scoring (excludes fraud detection — Recital 58), (c) life/health insurance risk assessment and pricing, (d) emergency call classification/dispatch/triage
+5. **Essential services**: (a) public assistance eligibility, (b) creditworthiness/credit scoring (excludes fraud detection — Recital 58), (c) life/health insurance risk/pricing, (d) emergency call classification/dispatch/triage
 6. **Law enforcement** (where permitted): (a) victim risk assessment, (b) polygraphs/deception detection, (c) evidence reliability, (d) re-offending risk (not solely profiling), (e) profiling in criminal investigation
 7. **Migration/border**: (a) polygraphs, (b) risk assessment of persons entering EU, (c) asylum/visa/residence application examination, (d) detecting/identifying persons (excludes travel document verification)
 8. **Justice/democracy**: (a) AI assisting judicial authority in researching/applying law, alternative dispute resolution, (b) AI influencing elections/referenda/voting behaviour (excludes admin/logistical campaign tools)
@@ -141,7 +142,7 @@ Provider must document the Art. 6(3) assessment before market placement and regi
 
 **Obligations:**
 - All GPAI: technical documentation (Annex XI), info to downstream providers (Annex XII), copyright policy, training data summary, acceptable use policy, EU authorised representative for third-country providers (Art. 54)
-- Systemic risk adds (Art. 55): model evaluations, adversarial testing/red-teaming, serious incident tracking + AI Office reporting, cybersecurity
+- Systemic risk adds: model evaluations, adversarial testing/red-teaming, serious incident tracking + AI Office reporting, cybersecurity
 - Open-source partial exemption: exempt from Annex XI docs and Annex XII info (unless systemic risk). Still must comply with copyright and training data summary.
 - AI Office notification (Art. 52): required without delay when systemic risk threshold met
 - Code of Practice (Art. 56): adherence can demonstrate compliance; mitigating factor for fines
@@ -156,7 +157,7 @@ Provider must document the Art. 6(3) assessment before market placement and regi
 
 | Obligation | Article | Trigger | Who | Requirement |
 |-----------|---------|---------|-----|-------------|
-| AI interaction disclosure | 50(1) | Direct interaction with persons | Provider (deployers must cooperate in implementation) | Inform person of AI nature — clearly, at first interaction (unless obvious — Recital 132) |
+| AI interaction disclosure | 50(1) | Direct interaction with persons | Provider | Inform person of AI nature — clearly, at first interaction (unless obvious — Recital 132) |
 | Output marking | 50(2) | Generating synthetic audio/image/video/text | Provider | Machine-readable format marking as AI-generated; must be robust, interoperable, reliable |
 | Emotion/biometric disclosure | 50(3) | Emotion recognition or biometric categorisation | Deployer | Inform exposed persons; GDPR compliance |
 | Deep fake labelling | 50(4) | Generating/manipulating deep fake content | Provider & Deployer | Disclose artificial generation |
@@ -176,15 +177,13 @@ If no previous step triggered → Minimal risk. No mandatory AI Act requirements
 
 Present obligations specific to the user's role (provider vs. deployer) and classification. Use the tables below.
 
-**Provider obligations for high-risk (Arts. 8-22):** Risk management system (Art. 9), data governance (Art. 10), technical documentation (Art. 11 + Annex IV), record-keeping (Art. 12), transparency to deployers (Art. 13), human oversight design (Art. 14), accuracy/robustness/cybersecurity (Art. 15), quality management system (Art. 17), conformity assessment (Art. 43 — internal control via Annex VI for most Annex III; notified body via Annex VII for biometric identification and Annex I), EU declaration of conformity (Art. 47), CE marking (Art. 48), EU database registration (Art. 49 + Art. 71), post-market monitoring (Art. 72), serious incident reporting (Art. 73 — immediately after causal link established, max 15 days after awareness).
+**Provider obligations for high-risk (Arts. 8-22):** Risk management system (Art. 9), data governance (Art. 10), technical documentation (Art. 11 + Annex IV), record-keeping (Art. 12), transparency to deployers (Art. 13), human oversight design (Art. 14), accuracy/robustness/cybersecurity (Art. 15), quality management system (Art. 17), conformity assessment (Art. 43 — internal control via Annex VI for most Annex III; notified body via Annex VII for biometric identification and Annex I), EU declaration of conformity (Art. 47), CE marking (Art. 48), EU database registration (Art. 49), post-market monitoring (Art. 72), serious incident reporting (Art. 73 — within 72 hours).
 
 **Deployer obligations for high-risk (Arts. 26-27):** Use per instructions (Art. 26(1)), human oversight with competent staff (Art. 26(2)), input data relevance (Art. 26(4)), monitoring (Art. 26(5)), log retention min. 6 months (Art. 26(6)), FRIA (Art. 27 — required for public bodies, entities providing public services, and deployers using 5(b) creditworthiness or 5(c) insurance systems), DPIA integration (Art. 26(9)), inform affected persons (Art. 26(11)).
 
 **Deployer upstream verification:** If deploying a third-party high-risk system, verify: CE marking (Art. 48), EU declaration of conformity (Art. 47), instructions for use provided (Art. 13), EU database registration (Art. 49), and if GPAI-based: Annex XII documentation from model provider.
 
 **Penalties:** Prohibited practices: €35M / 7% turnover (Art. 99(3)). High-risk violations: €15M / 3% (Art. 99(4)). Incorrect information: €7.5M / 1% (Art. 99(5)). SME/startup: proportionality applies, lower amount (Art. 99(6)). EU institutions: €1.5M (prohibited) / €750K (other) (Art. 100).
-
-**AI literacy (Art. 4) — applies to ALL operators:** Providers and deployers must ensure sufficient AI literacy among staff and others dealing with AI systems on their behalf, taking into account their technical knowledge, experience, education, context of use, and affected persons. In force since 2 February 2025. Not classification-dependent — applies regardless of risk level.
 
 ---
 
@@ -217,7 +216,7 @@ Score: 6-8 = strong foundation; 4-5 = moderate gaps; 0-3 = significant gaps.
 
 ---
 
-## ORIENT Stage: NORMALIZE
+## ORIENT Stage: NAVIGATE
 
 ### Step 8 — Recommended First Actions
 
@@ -279,7 +278,7 @@ Always structure the classification report using this ORIENT format:
 - **EU nexus:** [how the system is in scope]
 - **Scope status:** [In scope / Out of scope + reason]
 
-### RISK-ASSESS — Classification
+### RISK — Classification
 - **Prohibited practices (Art. 5):** [None identified / PROHIBITED — Art. 5(1)(x)]
 - **High-risk (Art. 6):** [Not high-risk / HIGH-RISK — Annex [I/III], Area [X]]
 - **Art. 6(3) exception:** [Not applicable / Applied — criterion (x) / Not available — profiling override]
@@ -293,7 +292,7 @@ Always structure the classification report using this ORIENT format:
 ### EVALUATE — Compliance Quick-Assessment
 [Present relevant checklist items; ask user to self-assess]
 
-### NORMALIZE — Recommended First Steps
+### NAVIGATE — Recommended First Steps
 [Numbered priority list based on classification and urgency]
 
 ### TRACK — Timeline & Review Triggers
@@ -308,10 +307,8 @@ Always structure the classification report using this ORIENT format:
 
 When discussing classifications, use these definitions precisely:
 - **AI system** (Art. 3(1)): machine-based, varying autonomy, may be adaptive, infers outputs from inputs
-- **Provider** (Art. 3(3)): develops or commissions development, places on market under own name
+- **Provider** (Art. 3(8)): develops or commissions development, places on market under own name
 - **Deployer** (Art. 3(4)): uses system under own authority
-- **Importer** (Art. 3(6)): located in EU, places on market a system bearing a third-country name/trademark
-- **Distributor** (Art. 3(7)): makes system available on EU market (not provider or importer)
 - **Placing on the market** (Art. 3(9)): first making available on EU market
 - **Putting into service** (Art. 3(11)): supply for first use (includes internal deployment)
 - **Intended purpose** (Art. 3(12)): use for which the system is intended by the provider

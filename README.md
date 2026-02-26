@@ -23,10 +23,10 @@ Every classification follows the HEXIS ORIENT methodology:
 | Stage | What it does |
 |-------|-------------|
 | **O** — Observe | Identify system, role, and scope |
-| **R** — Risk-assess | Classify under EU AI Act risk categories |
+| **R** — Risk | Classify under EU AI Act risk categories |
 | **I** — Identify | Map legal obligations by role |
 | **E** — Evaluate | Assess current compliance gaps |
-| **N** — Normalize | Prioritise recommended actions |
+| **N** — Navigate | Chart path from findings to action |
 | **T** — Track | Set deadlines and review triggers |
 
 Most tools stop at **R**. This plugin delivers the full cycle.
@@ -70,7 +70,7 @@ Generated using the HEXIS ORIENT Framework
 - EU nexus: Bank established in Germany
 - Scope: In scope (Art. 2(1)(a))
 
-### RISK-ASSESS — Classification
+### RISK — Classification
 - Prohibited (Art. 5): None identified
 - High-risk (Art. 6): HIGH-RISK — Annex III, Area 5(b) (creditworthiness)
 - Art. 6(3) exception: Not available — profiling override applies
@@ -82,7 +82,7 @@ Generated using the HEXIS ORIENT Framework
 ### EVALUATE — Compliance Quick-Assessment
 [Checklist items...]
 
-### NORMALIZE — Recommended First Steps
+### NAVIGATE — Recommended First Steps
 1. Conduct FRIA (Art. 27) — required for creditworthiness
 2. Assign trained human oversight staff (Art. 26(2))
 ...
@@ -107,23 +107,19 @@ Generated using the HEXIS ORIENT Framework
 hexis-ai-governance/
 ├── .claude-plugin/
 │   └── plugin.json
-├── .mcp.json
-├── .gitignore
 ├── commands/
 │   └── risk-classify.md
 ├── skills/
 │   └── eu-ai-act-risk-classification/
 │       └── SKILL.md
-├── settings.json
 ├── README.md
-├── CONTRIBUTING.md
-├── CHANGELOG.md
-└── LICENSE
+├── LICENSE
+└── CHANGELOG.md
 ```
 
 ## Modules Roadmap
 
-### Available Now (v0.2.0)
+### Available Now (v0.2.1)
 - ✅ EU AI Act Risk Classifier
 
 ### Coming Soon

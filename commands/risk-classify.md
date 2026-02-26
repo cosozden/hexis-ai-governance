@@ -48,10 +48,10 @@ Once you have sufficient information, proceed to the full ORIENT classification.
 Apply the `eu-ai-act-risk-classification` skill. Walk through every ORIENT stage:
 
 1. **OBSERVE** — Confirm role and scope
-2. **RISK-ASSESS** — Screen prohibited → high-risk → GPAI → transparency → minimal
+2. **RISK** — Screen prohibited → high-risk → GPAI → transparency → minimal
 3. **IDENTIFY** — Map obligations by role and classification
 4. **EVALUATE** — Present compliance gap checklist
-5. **NORMALIZE** — Deliver prioritised action list
+5. **NAVIGATE** — Deliver prioritised action list
 6. **TRACK** — State deadline and review triggers
 
 ## Output
