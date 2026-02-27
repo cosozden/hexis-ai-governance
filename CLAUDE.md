@@ -8,6 +8,7 @@
 
 **Project:** HEXIS AI Governance Compliance Plugin
 **Repo:** github.com/cosozden/hexis-ai-governance
+**Sister Repo:** github.com/cosozden/hexis.center (web platform — has its own CLAUDE.md)
 **Current Version:** 0.2.1
 **License:** Apache 2.0
 **Founder:** Özden — ISO/IEC 42001 Lead Implementer, preparing for IAPP AIGP exam
@@ -63,7 +64,11 @@ Note: "implement" and "evidence" as regular English verbs in action items are fi
 
 ## 3. Visual Design System
 
-### Color Palette
+HEXIS has two visual palettes for different contexts. Always use the correct one.
+
+### 3A. Plugin Palette — Digital Content
+**Use for:** LinkedIn graphics, presentations, infographics, slide decks, digital marketing, Claude Cowork plugin UI references.
+
 | Role | Color | Hex |
 |------|-------|-----|
 | Background (primary) | Dark navy | `#0A1628` |
@@ -73,17 +78,28 @@ Note: "implement" and "evidence" as regular English verbs in action items are fi
 | Success/pass | Green | `#22C55E` |
 | Error/prohibited | Red | `#EF4444` |
 
-### Typography
-- Headings: Bold sans-serif (Inter, system-ui fallback)
-- Body: Regular weight sans-serif
-- Code/technical: Monospace
+**Typography:** Bold sans-serif (Inter, system-ui fallback)
 
-### Visual Rules
+### 3B. Web Palette — hexis.center & Documents
+**Use for:** hexis.center website, PDF reports, printed documents, formal deliverables.
+**Full spec:** See hexis.center/CLAUDE.md Section 3.
+
+| Role | Color | Hex |
+|------|-------|-----|
+| Background | Paper | `#F8F7F5` |
+| Primary dark | Charcoal | `#1C1E23` |
+| Accent | Brass | `#B2986C` |
+| Secondary text | Stone | `#686662` |
+
+**Typography:** Georgia (headings), Arial (body), no external fonts.
+
+### 3C. Shared Rules (both palettes)
 - ORIENT stage labels as small badges: `● ORIENT: Risk`
 - Icons: Line style, no fill
 - Logo placement: Bottom-right "hexis" wordmark + "hexis.center"
-- Style: Minimal, corporate — McKinsey report aesthetic
+- Style: Minimal, corporate — substance over style
 - No decorative elements unless functional
+- No rounded corners, no shadows
 
 ### LinkedIn Image Dimensions
 - Infographic: 1080×1350px (vertical)
@@ -116,9 +132,10 @@ Note: "implement" and "evidence" as regular English verbs in action items are fi
 - Always flag as uncertain: "Digital Omnibus (proposed): If adopted, may extend deadlines — monitor status"
 
 ### Key Penalties
-- Prohibited violations: €35M or 7% global turnover (Art. 99(3))
-- High-risk violations: €15M or 3% global turnover (Art. 99(4))
-- Incorrect information: €7.5M or 1% (Art. 99(5))
+- Prohibited violations: €35M or 7% global turnover, whichever is higher (Art. 99(3))
+- High-risk violations: €15M or 3% global turnover, whichever is higher (Art. 99(4))
+- Incorrect information: €7.5M or 1%, whichever is higher (Art. 99(5))
+- SMEs and startups: same amounts/percentages but whichever is **lower** (Art. 99(6))
 
 ### Citation Format
 Always cite with article numbers: "Article 6(1)(a) Regulation (EU) 2024/1689"
@@ -156,6 +173,13 @@ When version changes, update ALL of these:
 3. `README.md` → If version-specific content exists
 4. Git tag → `vX.Y.Z`
 
+### Cross-Repository Awareness
+The HEXIS ecosystem has two repos:
+- **This repo** (`hexis-ai-governance`): Claude Cowork plugin — risk classification engine, SKILL.md, commands
+- **hexis.center repo**: Web platform — generator tool, checklist, blog, methodology pages
+- The plugin's risk classification logic is ALSO implemented as a web wizard in `hexis.center/generator/index.html`
+- Changes to classification logic must be reflected in BOTH repos
+
 ---
 
 ## 6. Quality Assurance — 3 Phase Protocol
@@ -163,11 +187,11 @@ When version changes, update ALL of these:
 **Every HEXIS output must pass this protocol before release.**
 
 ### Phase 1 — Functional Test
-- ORIENT terminology correct? (6 stages, correct names)
+- ORIENT terminology correct? (6 stages, correct names per v0.2.1)
 - Decision tree produces correct classification?
 - 3+ test scenarios: expected use, edge case, minimal/negative
 - Version numbers consistent across all files?
-- No deprecated terminology (Risk-Assess, Normalize)?
+- No deprecated ORIENT stage names used? (check v0.2.1 table)
 
 ### Phase 2 — Source Verification
 - **CRITICAL: Never trust memory for legal references**
@@ -180,6 +204,7 @@ When version changes, update ALL of these:
 - File structure correct?
 - Cross-references updated? (one file changes → all referencing files updated)
 - CHANGELOG reflects changes?
+- Correct palette used? (Plugin palette for digital, Web palette for site/PDF)
 
 ---
 
@@ -203,11 +228,15 @@ When version changes, update ALL of these:
 ## 8. Sprint Status
 
 **Sprint 1 (Risk Classifier MVP):** ✅ COMPLETE (v0.2.1)
-**Sprint 2 (Compliance Documenter):** NEXT
+- Plugin: risk-classify command + SKILL.md ✅
+- Web: Risk Classifier wizard added to generator ✅
+
+**Sprint 2 (Compliance Documenter + Platform Integration):** ⏳ CURRENT
 - FRIA template generator (Art. 27)
 - Technical documentation template (Art. 11 + Annex IV)
 - Conformity assessment guidance (Art. 43)
 - Post-market monitoring plan template (Art. 72)
+- Three-tool integration: Classifier → Generator → Checklist
 
 ### Sprint 2 Backlog (from QA v0.2.1)
 1. Art. 73: Add death (10 days) and widespread infringement (2 days) sub-timelines
@@ -215,11 +244,15 @@ When version changes, update ALL of these:
 3. Digital Omnibus AI literacy: Flag potential responsibility shift
 4. Navigate stage: Add quick wins vs structural changes, resource allocation, stakeholder communication
 
+**Sprint 3 (AI Literacy + KVKK Crosswalk):** Planned
+**Sprint 4 (Launch + Community):** Planned
+
 ---
 
 ## 9. LinkedIn Content Defaults
 
 When generating LinkedIn content for HEXIS:
+- **Use Plugin Palette** (dark navy background, agate blue accent) for all graphics
 - Tag relevant ORIENT stage
 - Include Claude Code visual prompt at end
 - Hashtags: #EUAIAct #AIGovernance #AICompliance #RiskClassification #OpenSource #HEXIS #ORIENT #RegTech
@@ -238,3 +271,5 @@ At the beginning of each Claude Code session:
 3. ✅ Check current version in plugin.json
 4. ✅ Verify ORIENT terminology is v0.2.1 (Navigate, not Normalize)
 5. ✅ Ask if there are new decisions from claude.ai sessions to incorporate
+6. ✅ Confirm which repo you are working in (plugin vs hexis.center)
+7. ✅ Confirm which palette applies (Plugin for digital content, Web for site/docs)
